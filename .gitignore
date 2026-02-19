@@ -1,0 +1,25 @@
+__pycache__/
+*.pyc
+.venv/
+dist/
+build/
+*.egg-info/
+
+runs/
+results/
+*.log
+
+# CAD / mesh / OpenFOAM outputs
+*.stl
+*.obj
+*.vtk
+*.vtu
+*.foam
+constant/polyMesh/
+processor*/
+postProcessing/
+log.*
+
+.env
+.DS_Store
+Thumbs.db
