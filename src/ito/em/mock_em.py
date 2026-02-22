@@ -8,7 +8,7 @@ import math
 class EMParams:
     f_hz: float = 40_000.0   # frequency
     I_a: float = 150.0       # current amplitude (placeholder)
-    k: float = 1.0e-6        # scaling constant for mock power
+    k: float = 1.0e-3        # scaling constant for mock power
 
 def estimate_power_w_from_stl(stl_path: Path, em: EMParams) -> float:
     """
