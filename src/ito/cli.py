@@ -75,5 +75,17 @@ def run(
 
     (run_dir / "metrics.json").write_text(json.dumps(metrics, indent=2))
 
+
+@app.command()
+def optimize(
+    outdir: Path = typer.Option(Path("runs/study"), help="Study output directory"),
+    n_trials: int = typer.Option(50, help="Number of optimization trials"),
+):
+    """Run a fast Optuna optimization (mock EM + lumped thermal)."""
+    from ito.optimize.study import run_study
+    best = run_study(outdir=outdir, n_trials=n_trials)
+    typer.echo(f"Best value (T_final_C): {best['best_value']}")
+    typer.echo(f"Best params: {best['best_params']}")
+
 if __name__ == "__main__":
     app()
